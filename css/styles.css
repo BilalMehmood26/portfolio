@@ -144,7 +144,13 @@ section{padding-block:96px 0}
 .apps span{font-size:13px;color:var(--muted)}
 .shots{position:relative;height:clamp(380px,40vw,500px);display:flex;justify-content:center;align-items:center}
 .shot{position:absolute;width:clamp(150px,15.5vw,200px);aspect-ratio:480/991;max-width:100%;border-radius:26px;border:6px solid var(--phone);background:var(--phone);overflow:hidden;box-shadow:0 26px 50px -20px var(--shade);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.shot img{position:relative;display:block;width:100%;height:100%;object-fit:cover}
+/* while a screenshot downloads, show a soft shimmer instead of an empty dark screen; main.js adds .loaded */
+.shot::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(140,180,255,.14) 50%,transparent 65%);background-size:250% 100%;animation:shimmer 1.3s linear infinite}
+.shot.loaded::before{display:none}
+.js .shot img{opacity:0;transition:opacity .45s ease}
+.js .shot.loaded img{opacity:1}
+@keyframes shimmer{from{background-position:130% 0}to{background-position:-30% 0}}
 .shot.l{transform:translateX(-70%) rotate(-8deg) scale(.86)}
 .shot.r{transform:translateX(70%) rotate(8deg) scale(.86)}
 .shot.c{z-index:2}
@@ -253,4 +259,4 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   .stat:nth-child(n+3){border-top:1px solid var(--band-line)}
 }
 @media (max-width:620px){.stack{padding:16px}.links{display:none}.portrait{height:340px}.ring{width:150px}.float{padding:8px 11px}.float b{font-size:13px}.float small{font-size:11px}.f2{left:0}.f3{right:0}.shots{height:330px}.shot{width:140px}.apps{grid-template-columns:1fr}.stats{padding:24px 20px}.stat{padding:16px 0 16px 16px}.stat b{font-size:28px}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .hs-grid li{opacity:1;transform:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js .hs-grid li{opacity:1;transform:none}.js .shot img{opacity:1}html{scroll-behavior:auto}}

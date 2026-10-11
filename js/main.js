@@ -15,3 +15,10 @@ if (appsShow && 'IntersectionObserver' in window) {
     if (entries[0].isIntersecting) { appsShow.classList.add('in'); io.disconnect(); }
   }, { threshold: 0.3 }).observe(appsShow);
 } else if (appsShow) appsShow.classList.add('in');
+
+// Fade each phone screenshot in once it has downloaded (the frame shows a shimmer until then)
+document.querySelectorAll('.shot img').forEach(img => {
+  const done = () => img.parentElement.classList.add('loaded');
+  if (img.complete && img.naturalWidth) done();
+  else { img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true }); }
+});
