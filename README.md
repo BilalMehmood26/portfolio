@@ -4,6 +4,8 @@ The source code of my personal portfolio website. I'm a **senior Android develop
 with 6+ years** of experience building apps in Kotlin, from first commit to Play Store,
 including work on the **UBL Digital** banking app.
 
+**🌐 Live site: [bilal-mehmood-android.netlify.app](https://bilal-mehmood-android.netlify.app/)**
+
 ![Portfolio preview](docs/preview.png)
 
 ## What's on the site
@@ -63,6 +65,7 @@ such as GitHub Pages, Netlify, AWS Amplify or S3.
 I build Android apps for startups and businesses: new apps, features on existing
 codebases, Firebase backends and AI features.
 
+- **Portfolio:** [bilal-mehmood-android.netlify.app](https://bilal-mehmood-android.netlify.app/)
 - **Upwork:** [Hire me on Upwork](https://www.upwork.com/freelancers/~01d5fa7ac325688269)
 - **LinkedIn:** [linkedin.com/in/bilalmehmood628](https://www.linkedin.com/in/bilalmehmood628/)
 - **Email:** [bilalmehmood628@gmail.com](mailto:bilalmehmood628@gmail.com)
